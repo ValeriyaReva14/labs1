@@ -46,11 +46,6 @@ public:
 		bool firstChang = false;
 		for (LinkedList *i = first; i; i = i->next)
 		{
-			if (firstChang)
-			{
-				i = first;
-				firstChang = false;
-			}
 			bool isDubl = false;
 			LinkedList *bufj = first;
 			for (LinkedList *j = first; j; j = j->next)
@@ -63,24 +58,6 @@ public:
 					isDubl = true;
 				}
 				bufj = j;
-			}
-			if (isDubl)
-			{
-				if (i == first)
-				{
-					bufi = i->next;
-					delete i;
-					i = bufi;
-					first = i;
-					if (!i) return;
-					firstChang = true;
-				}
-				else
-				{
-					bufi->next = i->next;
-					delete i;
-					i = bufi;
-				}
 			}
 			bufi = i;
 		}

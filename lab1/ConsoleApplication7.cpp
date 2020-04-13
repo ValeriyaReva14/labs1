@@ -39,10 +39,11 @@ int main()
 	cout <<"Сумма элементов в третьей строке:"<< matrix3.sumRow(2) << endl;
 	cout <<"Максимальный элементв в третьем столбце:" << matrix3.maxColumn(2) << endl;
 	cout <<"Минимальный элементв в третьем столбце:" << matrix3.minColumn(2) << endl;
-	MatrixXnX matrixX(4);
+	int size = 6;
+	MatrixXnX matrixX(size);
 	matrixX.fillRandomElements(-10, 9);
-	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 4; j++) {
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
 			cout << matrixX.element(i, j) << " " << "\t";
 		}
 		cout << endl;
@@ -70,6 +71,7 @@ int main()
 	list.add('4');
 	list.add('1');
 	list.deleteDublicate();
+	cout << "Удаление дубликатов:";
 	list.show();
 
 }

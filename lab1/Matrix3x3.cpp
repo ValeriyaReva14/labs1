@@ -8,11 +8,12 @@ using namespace std;
 
 class Matrix3x3
 {
+	int value = 3;
 	int arr[3][3];
 public:
 	Matrix3x3() {
-		for (int i = 0; i < 3; ++i) {
-			for (int j = 0; j < 3; ++j) {
+		for (int i = 0; i < value; ++i) {
+			for (int j = 0; j < value; ++j) {
 				arr[i][j] = (i * 3) * 0;
 			}
 		}
@@ -26,8 +27,8 @@ public:
 
 	void fillRandomElements(const int minVal, const int maxVal) {
 		srand(time(NULL));
-		for (int i = 0; i < 3; ++i) {
-			for (int j = 0; j < 3; ++j) {
+		for (int i = 0; i < value; ++i) {
+			for (int j = 0; j < value; ++j) {
 				arr[i][j] = rand() % (maxVal - minVal + 1) + minVal;
 			}
 		}
@@ -35,7 +36,7 @@ public:
 
 	int sumPrincipalDiag() const {
 		int principal = 0;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < value; i++) {
 			principal += arr[i][i];
 		}
 		return principal;
@@ -43,7 +44,7 @@ public:
 
 	int sumSecondaryDiag() const {
 		int secondary = 0;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < value; i++) {
 			secondary += arr[i][2 - i];
 		}
 		return secondary;
@@ -51,7 +52,7 @@ public:
 
 	int productPrincipalDiag() const {
 		int princ = 1;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < value; i++) {
 			princ *= arr[i][i];
 		}
 		return princ;
@@ -59,7 +60,7 @@ public:
 
 	int productSecondaryDiag() const {
 		int second = 1;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < value; i++) {
 			second *= arr[i][2 - i];
 		}
 		return second;
@@ -67,7 +68,7 @@ public:
 
 	int sumRow(const int iRow) const {
 		int row = 0;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < value; i++) {
 			row += arr[iRow][i];
 		}
 		return row;
@@ -75,7 +76,7 @@ public:
 
 	int minColumn(const int iCol) const {
 		int min = INT32_MAX;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < value; i++) {
 			min = arr[i][iCol] < min ? arr[i][iCol] : min;
 		}
 		return min;
@@ -83,7 +84,7 @@ public:
 
 	int maxColumn(const int iCol) const {
 		int max = INT32_MIN;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < value; i++) {
 			max = arr[i][iCol] > max ? arr[i][iCol] : max;
 		}
 		return max;
